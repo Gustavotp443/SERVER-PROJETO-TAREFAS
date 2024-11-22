@@ -18,7 +18,7 @@ interface IGetAllTasksParams {
         where: {
           title: {
             contains: filter,
-            mode: "insensitive", // Case Sensitive nulo
+            mode: "insensitive",
           },
         },
         skip: offset,

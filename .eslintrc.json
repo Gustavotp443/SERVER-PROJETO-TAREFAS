@@ -19,7 +19,7 @@
         "singleQuote": false,
         "tabWidth": 2,
         "printWidth": 80,
-        "jsxBracketSameLine": false, // Use "bracketSameLine": false se estiver usando uma versão do Prettier >= 2.4
+        "jsxBracketSameLine": false,
         "trailingComma": "none"
       }
     ],

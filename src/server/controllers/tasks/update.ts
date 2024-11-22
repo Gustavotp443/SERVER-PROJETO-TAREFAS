@@ -6,10 +6,9 @@ import { TaskProvider } from "../../database/providers/tasks";
 import { validation } from "../../shared/middleware";
 import { TaskStatus } from "@prisma/client";
 
-//Recriar por devido ao enumerate de completed
 interface IUpdateBodyProps {
     title?: string;
-    completed?: string; // Para validação inicial, será convertido posteriormente
+    completed?: string; 
   }
 
 //MIDDLEWARE DE VALIDAÇÃO DOS DADOS

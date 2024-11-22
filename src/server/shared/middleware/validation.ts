@@ -4,16 +4,12 @@ import { AnyObject, Maybe, ObjectSchema, ValidationError } from "yup";
 
 type TProperty = "body" | "header" | "params" | "query";
 
-//Usando Generics, ainda não sei qual é o <T>, retorna 1 schema
 type TGetSchema = <T extends Maybe<AnyObject>>(
   schema: ObjectSchema<T>
 ) => ObjectSchema<T>;
 
-//RECORD é lista de types
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type TAllSchemas = Record<TProperty, ObjectSchema<any>>;
 
-//Retorna todos os schemas
 type TGetAllSchemas = (getSchema: TGetSchema) => Partial<TAllSchemas>;
 
 type TValidation = (getAllSchemas: TGetAllSchemas) => RequestHandler;
@@ -31,7 +27,6 @@ export const validation: TValidation =
         const errors: Record<string, string> = {};
 
         yupError.inner.forEach((e) => {
-          // Mapeando lista de errors
           if (!e.path) return;
           errors[e.path] = e.message;
         });
@@ -41,10 +36,10 @@ export const validation: TValidation =
     });
 
     if (Object.entries(errorsResult).length === 0) {
-      return next(); // Execute o próximo handler na fila do endpoint
+      return next();
     } else {
       return res.status(StatusCodes.BAD_REQUEST).json({
           errors: errorsResult
-      }) as unknown as void; // Ajusta para garantir que seja compatível com o tipo esperado
+      }) as unknown as void;
     }
   };
