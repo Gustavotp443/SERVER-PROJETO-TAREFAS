@@ -1,0 +1,41 @@
+{
+  "name": "teste-dev-richard-empresa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "production": "node ./build/index.js",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "lint": "eslint --fix .ts .",
+    "watch": "nodemon --exec \"npm run lint && npm run dev\"",
+    "migrate": "npx prisma migrate dev --name ",
+    "seed": "ts-node ./src/server/database/seed.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.9.0",
+    "eslint": "^9.14.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "nodemon": "^3.1.7",
+    "prisma": "^5.22.0",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "http-status-codes": "^2.3.0",
+    "pg": "^8.13.1",
+    "teste-dev-richard-empresa": "file:",
+    "yup": "^1.4.0"
+  }
+}
